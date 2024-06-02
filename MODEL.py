@@ -202,18 +202,18 @@ def resh(stock_to_do):
         upro = data_set[stocks[28]]
 
     # открываем файлы commodities с котировками
-    urals = pd.read_csv('brent.csv')
-    metalurgi = pd.read_csv('metalurgi.csv')
-    zoloto = pd.read_csv('zoloto.csv')
-    palladiy = pd.read_csv('palladiy.csv')
-    platina = pd.read_csv('platina.csv')
-    ugol = pd.read_csv('ugol.csv')
-    nikel = pd.read_csv('nikel.csv')
-    ghelezo = pd.read_csv('ghelezo.csv')
-    med = pd.read_csv('med.csv')
-    RUGBITR10Y = pd.read_csv('RUGBITR10Y.csv')
-    RUGBITR1Y = pd.read_csv('RUGBITR1Y.csv')
-    RGBITR = pd.read_csv('RGBITR.csv')
+    urals = pd.read_csv('commodities/' +'brent.csv')
+    metalurgi = pd.read_csv('commodities/' +'metalurgi.csv')
+    zoloto = pd.read_csv('commodities/' +'zoloto.csv')
+    palladiy = pd.read_csv('commodities/' +'palladiy.csv')
+    platina = pd.read_csv('commodities/' +'platina.csv')
+    ugol = pd.read_csv('commodities/' +'ugol.csv')
+    nikel = pd.read_csv('commodities/' +'nikel.csv')
+    ghelezo = pd.read_csv('commodities/' +'ghelezo.csv')
+    med = pd.read_csv('commodities/' +'med.csv')
+    RUGBITR10Y = pd.read_csv('commodities/' +'RUGBITR10Y.csv')
+    RUGBITR1Y = pd.read_csv('commodities/' +'RUGBITR1Y.csv')
+    RGBITR = pd.read_csv('commodities/' +'RGBITR.csv')
 
     #добавляем Лаги и Change в котировки акций для добавления признаков
     # Список фреймов данных для обработки
@@ -1964,8 +1964,8 @@ def resh(stock_to_do):
         return compare
 
     table = ML(itog, priznaki, number)
-    table.to_csv('GAZP.csv')
-    table = pd.read_csv('GAZP.csv')
+    table.to_csv('stocks/'+'GAZP.csv')
+    table = pd.read_csv('stocks/' +'GAZP.csv')
 
     table['y_diff'] = table['y_pred_test'] - table['y_actual']
     table.set_index('dates', inplace=True)
@@ -2013,7 +2013,7 @@ def resh(stock_to_do):
     table = table.iloc[91:last]
     table['result'] = z_scores
 
-    table.to_csv(str(stock_to_do)+'.csv')
+    table.to_csv('stocks/'+str(stock_to_do)+'.csv')
     print(table)
 
 resh('LKOH')

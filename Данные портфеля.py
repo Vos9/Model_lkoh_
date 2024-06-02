@@ -27,7 +27,7 @@ aton = {}
 for i in stocks:
     filename = str(i) + '.csv'
 
-    table_to_explore = pd.read_csv(filename)
+    table_to_explore = pd.read_csv('stocks/' + filename)
     table_to_explore.set_index('dates', inplace=True)
 
     full_info[i] = table_to_explore
